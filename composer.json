@@ -1,0 +1,16 @@
+{
+    "name": "37065/bankasoop",
+    "description": "OOP bank imitation",
+    "autoload": {
+        "psr-4": {
+            "Begin\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Paulius7778hhh",
+            "email": "paulius3677@gmail.com"
+        }
+    ],
+    "require": {}
+}
