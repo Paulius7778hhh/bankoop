@@ -1,10 +1,10 @@
 <?php
-use Begin\App;
+use Start\App;
 
 require __DIR__ . '/../vendor/autoload.php';
 
 define('URL', "http://lbank.lt");
 
-$response = App::nice();
+$response = App::start();
 
 echo $response;

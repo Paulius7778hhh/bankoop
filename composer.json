@@ -1,9 +1,9 @@
 {
     "name": "37065/bankasoop",
-    "description": "OOP bank imitation",
+    "description": "bank imitation in oop form",
     "autoload": {
         "psr-4": {
-            "Begin\\": "app/"
+            "37065\\Bankasoop\\": "app/"
         }
     },
     "authors": [
