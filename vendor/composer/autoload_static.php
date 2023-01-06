@@ -11,10 +11,18 @@ class ComposerStaticInit74f0f19e125cfd03268b7e42ec9f132b
         array (
             'Start\\' => 6,
         ),
+        'B' => 
+        array (
+            'Bankcalc\\' => 9,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
         'Start\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app',
+        ),
+        'Bankcalc\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
         ),

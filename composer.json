@@ -1,9 +1,10 @@
 {
     "name": "37065/bankasoop",
-    "description": "bank imitation in oop form",
+    "description": "Internet bank imitation in object oriented programming form",
     "autoload": {
         "psr-4": {
-            "Start\\": "app/"
+            "Start\\": "app/",
+            "App\\DB\\": "app/"
         }
     },
     "authors": [

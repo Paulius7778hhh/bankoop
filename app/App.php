@@ -1,6 +1,7 @@
 <?php
 namespace Start;
 use Start\controllers\Calculator;
+use Start\controllers\Bankcalc;
 class App {
 public static function start()
 {
@@ -13,10 +14,20 @@ public static function start()
 }
    private static function router(array $url)
     {
+       $method = $_SERVER['REQUEST_METHOD'];
+        if($url[0] == null){
+            return (new Bankcalc)->toindex();
+        }
+        if($url[0] == 'createaccount' && $method == 'GET'){
+            return (new Bankcalc)->tocreate();
+        }
           if ($url[0] == 'calculator' && in_array($url[1], ['sum', 'diff', 'multi', 'div']) && count($url) == 4) {
             return (new Calculator)->{$url[1]}($url[2], $url[3]);
         }
-    }
+        if($url[0] == 'account-list' && count($url) == 4 &&  $method == 'GET'){
+            return (new Bankcalc)->index();
+        }
+    }   
     public static function view(string $__name, array $data)
     {
         ob_start();
@@ -35,4 +46,10 @@ public static function start()
 
         return $out;
     }
+    public static function redirect($url)
+    {
+        header('Location: ' . URL . $url);
+        return null;
+    }
+
 }

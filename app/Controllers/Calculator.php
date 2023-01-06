@@ -34,7 +34,7 @@ class Calculator {
     {
         $result = $a / $b;
         $pageTitle = 'Calculator | DIV';
-        return App::view('calculator_div', compact('result', 'pageTitle'));
+        return App::view('calculator', compact('result', 'pageTitle'));
         
     }
 
