@@ -3,7 +3,7 @@
     "description": "bank imitation in oop form",
     "autoload": {
         "psr-4": {
-            "37065\\Bankasoop\\": "app/"
+            "Start\\": "app/"
         }
     },
     "authors": [

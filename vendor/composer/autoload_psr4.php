@@ -6,5 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    '37065\\Bankasoop\\' => array($baseDir . '/src'),
+    'Start\\' => array($baseDir . '/app'),
 );
