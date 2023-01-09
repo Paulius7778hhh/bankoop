@@ -13,7 +13,12 @@ class Bankcalc {
     }
     public function index() {
         $data = (new FR('Accounts'))->showAll();
-        $pageTitle = 'Accounts';
-            return App::view('account-list', compact('Accounts', 'pageTitle'));
+        $pageTitle = 'Account-list';
+            return App::view('account-list', compact('data', 'pageTitle'));
+    }
+    public function save()
+    {
+        (new FR('Accounts'))->create($_POST);
+        return App::redirect('account-list');
     }
 }

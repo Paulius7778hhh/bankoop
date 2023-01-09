@@ -11,9 +11,9 @@ class ComposerStaticInit74f0f19e125cfd03268b7e42ec9f132b
         array (
             'Start\\' => 6,
         ),
-        'B' => 
+        'A' => 
         array (
-            'Bankcalc\\' => 9,
+            'App\\DB\\' => 7,
         ),
     );
 
@@ -22,7 +22,7 @@ class ComposerStaticInit74f0f19e125cfd03268b7e42ec9f132b
         array (
             0 => __DIR__ . '/../..' . '/app',
         ),
-        'Bankcalc\\' => 
+        'App\\DB\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
         ),
