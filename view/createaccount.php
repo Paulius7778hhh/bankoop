@@ -13,7 +13,7 @@
         </div>
         <div><label for="acount">Account number: </label>
         
-        <input type="text" name="acount" placeholder="Account number" readonly value="999999999">
+        <input type="text" name="acount" placeholder="Account number" readonly value="<?= $acountt ?>">
         </div>
         <button type="submit">Register</button>
     </form>

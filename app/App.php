@@ -20,7 +20,8 @@ public static function start()
             return (new Bankcalc)->toindex();
         }
         if($url[0] == 'createaccount' && $method == 'GET'){
-            return (new Bankcalc)->tocreate();
+          
+            return    (new Bankcalc)->tocreate();
         }
           if ($url[0] == 'calculator' && in_array($url[1], ['sum', 'diff', 'multi', 'div']) && count($url) == 4) {
             return (new Calculator)->{$url[1]}($url[2], $url[3]);
@@ -57,3 +58,6 @@ public static function start()
     }
 
 }
+
+//  (new Bankcalc)->tocreate();
+//             return (new Bankcalc)->account_nr();

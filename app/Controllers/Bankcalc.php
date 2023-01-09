@@ -9,7 +9,8 @@ class Bankcalc {
     }
     public static function tocreate(){
         $pageTitle = 'Account Creation';
-            return App::view('createaccount', compact('pageTitle'));
+        $acountt = Bankcalc::account_nr();
+            return App::view('createaccount', compact('pageTitle', 'acountt'));
     }
     public function index() {
         $data = (new FR('Accounts'))->showAll();
@@ -20,5 +21,13 @@ class Bankcalc {
     {
         (new FR('Accounts'))->create($_POST);
         return App::redirect('account-list');
+    }
+    public static function account_nr()
+    {
+     $start = 0;
+     $end = 11;
+     $end2 = 2;
+     $acountt = 'LT'.str_pad(rand(0,99),$end2,$start,STR_PAD_LEFT).'7300'.str_pad(rand(0,99999999999),$end,$start,STR_PAD_LEFT);
+     return $acountt;
     }
 }
