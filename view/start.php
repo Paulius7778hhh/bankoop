@@ -1,6 +1,6 @@
 <h1>Welcome to Lbank</h1>
 
-<form action="http://localhost/php-mano/bankas/create.php" method="post">
+<form action="<?= URL ."account-list" ?>" method="POST">
         
         <div><input type="text" name="name" placeholder="email"></div>
         <div><input type="password" name="password" placeholder="password"></div>

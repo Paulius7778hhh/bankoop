@@ -32,6 +32,12 @@ public static function start()
         if ($url[0] == 'Accounts' && $url[1] == 'save' && count($url) == 2 && $method == 'POST') {
             return (new Bankcalc)->save();
         }
+        if ($url[0] == 'congrats' && count($url) == 1 && $method == 'GET') {
+            return (new Bankcalc)->congrats();
+        }
+        if ($url[0] == 'congrats' && count($url) == 1 && $method == 'POST') {
+            return (new Bankcalc)->redirect();
+        }
     }   
     public static function view(string $__name, array $data)
     {

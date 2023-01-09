@@ -17,10 +17,15 @@ class Bankcalc {
         $pageTitle = 'Account-list';
             return App::view('account-list', compact('data', 'pageTitle'));
     }
+    public static function congrats() {
+        $pageTitle = 'congrats';
+            return App::view('congrats',compact('pageTitle'));
+    }
+
     public function save()
     {
         (new FR('Accounts'))->create($_POST);
-        return App::redirect('account-list');
+        return App::redirect('congrats');
     }
     public static function account_nr()
     {
@@ -30,4 +35,4 @@ class Bankcalc {
      $acountt = 'LT'.str_pad(rand(0,99),$end2,$start,STR_PAD_LEFT).'7300'.str_pad(rand(0,99999999999),$end,$start,STR_PAD_LEFT);
      return $acountt;
     }
-}
+}  
