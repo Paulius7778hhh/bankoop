@@ -1,7 +1,7 @@
 <h1>Create account</h1>
 
-
-    <form action="<?= URL ?>Accounts/save" method="post">
+            <?php $nameErr ?>
+    <form action="<?= URL ?>Check" method="post">
         <div><label for="name">Name: </label>
         <input type="text" name="name" placeholder="Name">
         </div>
@@ -10,6 +10,12 @@
         </div>
         <div><label for="personal-id-number">Personal ID: </label>
         <input type="text" name="personal-id-number" placeholder="Personal ID">
+        </div>
+        <div><label for="password">Password: </label>
+        <input type="text" name="password" placeholder="Password">
+        </div>
+        <div><label for="email">Email: </label>
+        <input type="email" name="email" placeholder="Email">
         </div>
         <div><label for="acount">Account number: </label>
         

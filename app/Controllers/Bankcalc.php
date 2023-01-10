@@ -2,6 +2,7 @@
 namespace Start\controllers;
 use Start\App;
 use Start\DB\FileReader as FR;
+use Start\controllers\Check;
 class Bankcalc {
     public static function toindex(){
         $pageTitle = 'LBank';

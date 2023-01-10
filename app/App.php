@@ -2,6 +2,7 @@
 namespace Start;
 use Start\controllers\Calculator;
 use Start\controllers\Bankcalc;
+use Start\controllers\Check;
 
 class App {
 public static function start()
@@ -37,6 +38,9 @@ public static function start()
         }
         if ($url[0] == 'congrats' && count($url) == 1 && $method == 'POST') {
             return (new Bankcalc)->redirect();
+        }
+        if ($url[0] == 'Check' && count($url) == 1 && $method == 'POST') {
+            return (new Check)->checkin();
         }
     }   
     public static function view(string $__name, array $data)
