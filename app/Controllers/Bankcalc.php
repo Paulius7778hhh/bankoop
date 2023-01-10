@@ -22,6 +22,10 @@ class Bankcalc {
         $pageTitle = 'congrats';
             return App::view('congrats',compact('pageTitle'));
     }
+    public static function menu() {
+        $pageTitle = 'welcome '.$_SESSION['username'];
+            return App::view('menu',compact('pageTitle'));
+    }
 
     public function save()
     {
@@ -30,10 +34,23 @@ class Bankcalc {
     }
     public static function account_nr()
     {
+     $data = unserialize(file_get_contents(__DIR__ . '\..\DB\Accounts'));
      $start = 0;
      $end = 11;
      $end2 = 2;
      $acountt = 'LT'.str_pad(rand(0,99),$end2,$start,STR_PAD_LEFT).'7300'.str_pad(rand(0,99999999999),$end,$start,STR_PAD_LEFT);
-     return $acountt;
+      if ($data  == null){
+        return $acountt;
+      }
+     foreach ($data as $acount) {
+        if ($acount['acount'] == $acountt) {
+            while ($acount['acount'] !== $acountt){
+                return $acountt !== $acount['acount'];
+            }
+            } else {
+            return $acountt;
+            }
+        }
+     
     }
 }  

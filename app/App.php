@@ -42,6 +42,12 @@ public static function start()
         if ($url[0] == 'Check' && count($url) == 1 && $method == 'POST') {
             return (new Check)->checkin();
         }
+        if ($url[0] == 'Check' && $url[1] == 'login' && count($url) == 2 && $method == 'POST') {
+            return (new Check)->login();
+        }
+        if ($url[0] == 'menu' && count($url) == 1 && $method == 'GET') {
+            return (new Bankcalc)->menu();
+        }
     }   
     public static function view(string $__name, array $data)
     {

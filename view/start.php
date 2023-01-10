@@ -5,7 +5,7 @@ print_r($data);
 ?>
 <h1>Welcome to Lbank</h1>
 
-<form action="<?= URL ."Check" ?>" method="POST">
+<form action="<?= URL ."Check/login" ?>" method="POST">
         
         <div><input type="text" name="name" placeholder="email"></div>
         <div><input type="password" name="password" placeholder="password"></div>
