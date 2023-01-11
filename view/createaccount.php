@@ -1,7 +1,7 @@
 <h1>Create account</h1>
 
             <?php $nameErr ?>
-    <form action="<?= URL ?>Check" method="post">
+    <form action="<?= URL ?>check" method="post">
         <div><label for="name">Name: </label>
         <input type="text" name="name" placeholder="Name">
         </div>

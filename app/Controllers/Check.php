@@ -7,23 +7,23 @@ class Check {
     public function login()
     {
         $data = unserialize(file_get_contents(__DIR__ . '\..\DB\Accounts'));
-        if (isset($_POST['login']) && !empty($_POST['email']) 
-               && !empty($_POST['password'])){
+        if($_POST['email'] == null || $_POST['password'] == null){
+                echo 'type in email' || 'type in password';
+        }
         foreach ($data as $id) {
         if ($id['email'] == $_POST['email']) {
             if($id['password'] == $_POST['password']){
-                    $_SESSION['valid'] = true;
-                    $_SESSION['timeout'] = time();
-                    $_SESSION['username'] = $id['username'];
+                    
                     
                     return (new Bankcalc)::menu();
             }
                 
             } else {
-                App::redirect('start');
+                //App::redirect('start');
+                echo '<h1> wrong password or email </h1>';
                 die;
             }
-        }
+        
         }
     }
     public function checkin() {
@@ -77,11 +77,33 @@ class Check {
     
      $balance = $_POST['balance'] = 0;
      $_POST['username'] = $name . $surname; 
+     foreach($data as $user){
+     if ($user['username'] == $_POST['username']) {
+            //App::redirect('createaccount');
+            echo '<h1> Already is user </h1>';
+                die;
+            } else {
+                $_POST['username'];
+            
+        }
+        }
+        if($_POST['email'] == null){
+            echo '<h1> fill email input </h1>';
+        }
      $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
      if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo '<h1> Shity email </h1>';
     } else {
-        $email;
+        foreach($data as $email){
+     if ($email['email'] == $_POST['email']) {
+            //App::redirect('createaccount');
+            echo '<h1> Already is email </h1>';
+                die;
+            } else {
+                $_POST['email'];
+            
+        }
+        }
         
     }
     $password = $_POST['password'];
