@@ -48,6 +48,9 @@ public static function start()
         if ($url[0] == 'menu' && count($url) == 1 && $method == 'GET') {
             return (new Bankcalc)->menu();
         }
+        if ($url[0] == 'menu' && $url[1] == 'logout' && count($url) == 2 && $method == 'GET') {
+            return (new Bankcalc)->toindex();
+        }
     }   
     public static function view(string $__name, array $data)
     {

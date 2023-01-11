@@ -2,4 +2,4 @@
 
 <a href="http://lbank.lt/account-list">account-list</a>
 
-<form action="start" method="post"><button type="submit">Log out</button></form>
+<form action="<?= URL ."menu/logout" ?>" method="GET"><button type="submit">Log out</button></form>

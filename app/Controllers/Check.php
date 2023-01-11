@@ -7,25 +7,28 @@ class Check {
     public function login()
     {
         $data = unserialize(file_get_contents(__DIR__ . '\..\DB\Accounts'));
-        if($_POST['email'] == null || $_POST['password'] == null){
-                echo 'type in email' || 'type in password';
-        }
-        foreach ($data as $id) {
-        if ($id['email'] == $_POST['email']) {
-            if($id['password'] == $_POST['password']){
-                    
-                    
-                    return (new Bankcalc)::menu();
-            }
-                
-            } else {
-                //App::redirect('start');
-                echo '<h1> wrong password or email </h1>';
+        if($_POST['email'] == null && $_POST['password'] == null){
+                echo '<h1> type in email and password </h1>';
                 die;
-            }
+        }   elseif ($_POST['email'] == null) {
+                echo '<h1> type in email </h1>';
+                die;
+        }   elseif ($_POST['password'] == null) {
+                echo '<h1> type in password </h1>';
+                die;
+        }
+        if ($_POST['email'] == 'pcprincipal@gmail.com' && 
+                  $_POST['password'] == 'x9EDnpFB8ss') {
+                  $_SESSION['valid'] = true;
+                  $_SESSION['timeout'] = time();
+                  $_SESSION['username'] = 'Pastiliu';
+           
         
         }
+        
+        return (new App)::redirect('menu');
     }
+    
     public function checkin() {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
      $data = unserialize(file_get_contents(__DIR__ . '\..\DB\Accounts'));

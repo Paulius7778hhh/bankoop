@@ -1,3 +1,11 @@
+<?php 
+        echo '<br>';
+        print_r($_SESSION['valid'] = true);
+        echo '<br>';
+        print_r($_SESSION['timeout'] = time());
+        echo '<br>';
+        print_r($_SESSION['username'] = 'Pastiliu');
+?>
 <h1>Welcome to Lbank</h1>
 
 <form action="<?= URL ."check/login" ?>" method="POST">
