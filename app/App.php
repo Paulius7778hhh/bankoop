@@ -19,23 +19,23 @@ class App
     {
         //$user = $_SESSION['username'];
         $method = $_SERVER['REQUEST_METHOD'];
-        if ($url[0] == null) {
+        if ($url[0] == null && null === $_SESSION['username']) {
             return (new Bankcalc)->toindex();
         }
-        if ($url[0] == 'createaccount' && $method == 'GET') {
+        if ($url[0] == 'createaccount' && $method == 'GET' && null === $_SESSION['username']) {
 
             return (new Bankcalc)->tocreate();
+        }
+        if ($url[0] == 'check' && count($url) == 1 && $method == 'POST' && null === $_SESSION['username']) {
+            return (new Check)->checkin();
         }
         if ($url[0] == 'check' && $url[1] == 'login' && count($url) == 2 && $method == 'POST') {
             return (new Check)->login();
         }
-        if ($url[0] == 'check' && count($url) == 1 && $method == 'POST') {
-            return (new Check)->checkin();
-        }
-        if ($url[0] == 'congrats' && count($url) == 1 && $method == 'GET') {
+        if ($url[0] == 'congrats' && count($url) == 1 && $method == 'GET' && null === $_SESSION['username']) {
             return (new Bankcalc)->congrats();
         }
-        if ($url[0] == 'congrats' && count($url) == 1 && $method == 'POST') {
+        if ($url[0] == 'congrats' && count($url) == 1 && $method == 'POST' && null === $_SESSION['username']) {
             return (new App)->redirect('');
         }
         if ($url[0] == 'Accounts' && $url[1] == 'save' && count($url) == 2 && $method == 'POST') {
