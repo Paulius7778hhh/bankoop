@@ -32,7 +32,6 @@ class Check
         foreach ($data as $index => $user) {
             // print_r($user['email'];
             if ($user['email'] === $email && $user['password'] === $password) {
-                session_start();
                 $_SESSION['username'] = $user['username'];
                 return (new Bankcalc)->menu();
             }

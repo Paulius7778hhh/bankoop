@@ -17,46 +17,40 @@ class App
     }
     private static function router(array $url)
     {
-        //$user = $_SESSION['username'];
+
         $method = $_SERVER['REQUEST_METHOD'];
-        if ($url[0] == null && null === $_SESSION['username']) {
+        if ($url[0] == null) {
             return (new Bankcalc)->toindex();
         }
-        if ($url[0] == 'createaccount' && $method == 'GET' && null === $_SESSION['username']) {
+        if ($url[0] == 'createaccount' && $method == 'GET') {
 
             return (new Bankcalc)->tocreate();
         }
-        if ($url[0] == 'check' && count($url) == 1 && $method == 'POST' && null === $_SESSION['username']) {
+        if ($url[0] == 'check' && count($url) == 1 && $method == 'POST') {
             return (new Check)->checkin();
         }
         if ($url[0] == 'check' && $url[1] == 'login' && count($url) == 2 && $method == 'POST') {
             return (new Check)->login();
         }
-        if ($url[0] == 'congrats' && count($url) == 1 && $method == 'GET' && null === $_SESSION['username']) {
+        if ($url[0] == 'congrats' && count($url) == 1 && $method == 'GET') {
             return (new Bankcalc)->congrats();
         }
-        if ($url[0] == 'congrats' && count($url) == 1 && $method == 'POST' && null === $_SESSION['username']) {
+        if ($url[0] == 'congrats' && count($url) == 1 && $method == 'POST') {
             return (new App)->redirect('');
         }
         if ($url[0] == 'Accounts' && $url[1] == 'save' && count($url) == 2 && $method == 'POST') {
             return (new Bankcalc)->save();
         }
-        if ($url[0] == 'menu' && count($url) == 1 && $method == 'GET' && isset($_SESSION['username'])) {
+        if ($url[0] == 'menu' && count($url) == 1 && $method == 'GET') {
             return (new Bankcalc)->menu();
-        } else {
-            return (new App)->redirect('');
-            die;
         }
         if ($url[0] == 'calculator' && in_array($url[1], ['sum', 'diff', 'multi', 'div']) && count($url) == 4) {
             return (new Calculator)->{$url[1]}($url[2], $url[3]);
         }
-        if ($url[0] == 'account-list' && count($url) == 1 &&  $method == 'GET' && isset($_SESSION['username'])) {
+        if ($url[0] == 'account-list' && count($url) == 1 &&  $method == 'GET') {
             return (new Bankcalc)->index();
-        } else {
-            return (new App)->redirect('');
-            die;
         }
-        if ($url[0] == 'menu' && $url[1] == 'logout' && count($url) == 2 && $method == 'POST') {
+        if ($url[0] == 'menu' && $url[1] == 'logout?' && count($url) == 2 && $method == 'GET') {
             return (new Bankcalc)->logout();
         }
     }

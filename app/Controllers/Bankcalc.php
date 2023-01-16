@@ -8,10 +8,20 @@ use Start\controllers\Check;
 
 class Bankcalc
 {
+    public function logout()
+    {
+        $pageTitle = 'LBank';
+        $_SESSION['username'] = '';
+        session_unset();
+        session_destroy();
+
+        return (new App)->redirect('');
+    }
     public static function toindex()
     {
         $pageTitle = 'LBank';
-        return App::view('start', compact('pageTitle'));
+        $session = session_start();
+        return App::view('start', compact('pageTitle', 'session'));
     }
     public static function tocreate()
     {
@@ -35,14 +45,7 @@ class Bankcalc
         $pageTitle = 'welcome ' . $_SESSION['username'];
         return App::view('menu', compact('pageTitle'));
     }
-    public function logout()
-    {
-        $pageTitle = 'LBank';
-        unset($_SESSION['username']);
-        session_unset();
-        session_destroy();
-        return App::redirect('');
-    }
+
 
     public function save()
     {

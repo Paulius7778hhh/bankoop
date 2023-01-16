@@ -13,6 +13,10 @@
 <?php
 
 $data = unserialize(file_get_contents(__DIR__ . '\..\app\DB\Accounts'));
+
 echo '<pre>';
+print_r($_SESSION);
+echo '<br>';
+echo '<br>';
 print_r($data);
 ?>
